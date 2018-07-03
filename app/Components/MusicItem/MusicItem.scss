@@ -1,0 +1,25 @@
+@import "./app/utils/variables";
+
+.item-wrapper {    
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    > .music-card{
+    background-color: aqua;
+    margin: 5px;
+
+        > .music-title{
+            font-weight: bold;
+            text-align: left;
+        }
+        > .music-artist{
+            text-align: left;
+        }
+    }
+
+    > .music-img .image{
+        width: 100%;
+    }
+        
+}
