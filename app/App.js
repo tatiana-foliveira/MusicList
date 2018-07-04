@@ -2,29 +2,22 @@
 import React from 'react'
 import { Component } from 'react'
 import MusicList from './Components/MusicList/MusicList'
+import Error from './Components/Error/Error'
 import "./App.scss"
+import { BrowserRouter as Router } from 'react-router-dom'
+import Route from 'react-router-dom/Route'
+import MusicDetails from './Components/MusicDetails/MusicDetails';
 
 export default class App extends Component {
   render() {
     return (
-      
-      <div className="container">
-        <div className="row">
-          <div className="panel panel-info">
-            <div className="panel-heading musicList-panel">
-              <p className="musicList-title">
-                MusicMix
-              </p> 
-              <p className="musicList-subTitle">
-                The music you love 
-              </p>         
-            </div>
-              <div className="panel-body musicList-background">
-                <MusicList/>
-              </div>
-          </div>
-        </div>
+      <Router>
+      <div>
+        <Route path="/" exact component={MusicList} />
+        <Route path="/details/:id" exact component={MusicDetails} />
+
       </div>
-    )
+      </Router>
+    );
   }
 }

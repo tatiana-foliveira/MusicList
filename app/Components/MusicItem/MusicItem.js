@@ -1,11 +1,18 @@
 import React from 'react'
 import { Component } from 'react'
 import "./MusicItem.scss"
+import { BrowserHistory } from 'react-router';
+import { Redirect } from 'react-router-dom'
 
 export default class MusicItem extends Component{
 
-  handleGoToDetails(){
-    console.log('details')
+ 
+
+  handleGoToDetails = () => {
+    let id = this.props.music.id;
+    const musicDetailsUrl = "/details/" + id;
+    window.location= musicDetailsUrl;
+    
   }
 
   render()

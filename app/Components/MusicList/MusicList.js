@@ -32,22 +32,32 @@ fetchData(){
  render()
   {
     const { musicList, isLoading } = this.state;  
-    // const {id, artist, imgUrl, title, webUrl, year} = musicList;
     if (isLoading) {
       return <p>Loading ...</p>;
-    }
-
-    
+    }    
     return (
-      
-      <div>
-        {musicList.map((music, index) =>
-        <div key={index}>
-          <MusicItem music={music}/>
+      <div className="container">
+          <div className="row">
+            <div className="panel panel-info">
+              <div className="panel-heading musicList-panel">
+                <p className="musicList-title">
+                  MusicMix
+                </p> 
+                <p className="musicList-subTitle">
+                  The music you love 
+                </p>         
+              </div>
+                <div className="panel-body musicList-background">
+                {musicList.map((music, index) =>
+                  <div key={index}>
+                    <MusicItem music={music}/>
+                    </div>
+                  )}
+                </div>
+            </div>
           </div>
-        )}
-      </div>
-    );
+        </div>
+       )
   }
     
 }
