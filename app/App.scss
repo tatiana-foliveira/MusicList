@@ -1,5 +1,9 @@
 @import "./utils/variables";
 
+.container .panel.panel-info{
+    border-color: transparent;
+}
+
 .container .panel-heading.musicList-panel{
     background-color: $base-color-dark;
     color: $base-color-dark;
@@ -7,21 +11,21 @@
 
     > .musicList-title{
         font-size: 55px;
-    color: $font-color;
-    font-weight: bolder;
-    text-align: center;
+        color: $font-color;
+        font-weight: bolder;
+        text-align: center;
     }
 
     > .musicList-subTitle{
         font-size: 25px;
-    color: $font-color;
-    font-weight: bolder;
-    text-align: center;
+        color: $font-color;
+        font-weight: bolder;
+        text-align: center;
     }
 }
 
     
 .container .panel-body.musicList-background{
-    background-color: $base-color-light;
+    background-color: transparent;
 
 }
