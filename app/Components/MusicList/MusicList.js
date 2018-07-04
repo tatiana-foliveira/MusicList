@@ -1,7 +1,9 @@
 import React from 'react'
 import { Component } from 'react'
 import MusicItem from '../MusicItem/MusicItem';
+import LogButtons from '../LogButtons/LogButtons';
 import "./MusicList.scss"
+import Loader from '../Loader/Loader';
 
 export default class MusicList extends Component{
 
@@ -33,7 +35,7 @@ fetchData(){
   {
     const { musicList, isLoading } = this.state;  
     if (isLoading) {
-      return <p>Loading ...</p>;
+      return <Loader />;
     }    
     return (
       <div className="container">
@@ -45,9 +47,11 @@ fetchData(){
                 </p> 
                 <p className="musicList-subTitle">
                   The music you love 
-                </p>         
+                </p> 
+                        
               </div>
-                <div className="panel-body musicList-background">
+                <div className="panel-body musicList-background">                
+                <LogButtons />
                 {musicList.map((music, index) =>
                   <div key={index}>
                     <MusicItem music={music}/>

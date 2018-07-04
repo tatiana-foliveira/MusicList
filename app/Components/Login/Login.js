@@ -106,7 +106,7 @@ handleSubmit(event) {
                         smOffset={5} sm={10} 
                         mdOffset={5} md={3}  
                         lgOffset={5} lg={3}>
-                            <Button type="submit">Sign in</Button>
+                            <Button type="submit">Log in</Button>
                         </Col>
                         </FormGroup>
                     </Form>

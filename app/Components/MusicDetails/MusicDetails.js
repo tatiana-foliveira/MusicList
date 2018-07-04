@@ -1,6 +1,7 @@
 import React from 'react'
 import { Component } from 'react'
 import "./MusicDetails.scss"
+import LogButtons from '../LogButtons/LogButtons';
 
 export default class MusicDetails extends Component{
     constructor(props){
@@ -49,6 +50,7 @@ export default class MusicDetails extends Component{
                 </p>         
               </div>
                 <div className="panel-body musicList-background">
+                <LogButtons />
                 <div className="music-img-detail">
                     <img className="image" src={musicDetail.imgUrl}/>
                 </div>

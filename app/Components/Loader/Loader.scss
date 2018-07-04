@@ -1,2 +1,8 @@
-
 @import "./app/utils/variables";
+
+.loading-text {
+    font-family: $font-family;
+    font-size: 50px;
+    color: $base-color-dark;
+    text-align: center;
+}

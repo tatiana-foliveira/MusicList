@@ -1,5 +1,6 @@
 import React from 'react'
 import { Component } from 'react'
+import "./Loader.scss"
 
 
 export default class Error extends Component{
@@ -20,7 +21,9 @@ export default class Error extends Component{
                 </p>         
               </div>
                 <div className="panel-body musicList-background">
-                    Loading...
+                    <div className="loading-text">
+                        Loading...
+                    </div>
                 </div>
             </div>
           </div>
