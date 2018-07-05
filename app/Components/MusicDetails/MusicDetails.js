@@ -1,7 +1,9 @@
 import React from 'react'
 import { Component } from 'react'
 import "./MusicDetails.scss"
-import LogButtons from '../LogButtons/LogButtons';
+import LogButtons from '../LogButtons/LogButtons'
+import Loader from '../Loader/Loader'
+import NavBar from '../NavBar/NavBar'
 
 export default class MusicDetails extends Component{
     constructor(props){
@@ -35,7 +37,7 @@ export default class MusicDetails extends Component{
   {
     const { musicDetail, isLoading } = this.state;  
     if (isLoading) {
-      return <p>Loading ...</p>;
+      return <Loader />;
     }   
     return (
         <div className="container">
@@ -50,7 +52,7 @@ export default class MusicDetails extends Component{
                 </p>         
               </div>
                 <div className="panel-body musicList-background">
-                <LogButtons />
+                  <NavBar />
                 <div className="music-img-detail">
                     <img className="image" src={musicDetail.imgUrl}/>
                 </div>

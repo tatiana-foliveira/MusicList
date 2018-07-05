@@ -1,9 +1,9 @@
 import React from 'react'
 import { Component } from 'react'
 import MusicItem from '../MusicItem/MusicItem';
-import LogButtons from '../LogButtons/LogButtons';
 import "./MusicList.scss"
-import Loader from '../Loader/Loader';
+import Loader from '../Loader/Loader'
+import NavBar from '../NavBar/NavBar'
 
 export default class MusicList extends Component{
 
@@ -22,7 +22,8 @@ componentDidMount(){
 }
 
 fetchData(){
-  fetch('https://songs-api-ubiwhere.now.sh/api/songs')
+  var url = 'https://songs-api-ubiwhere.now.sh/api/songs';
+  fetch(url)
   .then(data => data.json())
   .then(data => this.setState({ 
     musicList: data,
@@ -34,6 +35,7 @@ fetchData(){
  render()
   {
     const { musicList, isLoading } = this.state;  
+    console.log(musicList)
     if (isLoading) {
       return <Loader />;
     }    
@@ -50,8 +52,8 @@ fetchData(){
                 </p> 
                         
               </div>
-                <div className="panel-body musicList-background">                
-                <LogButtons />
+                <div className="panel-body musicList-background">    
+                <NavBar />         
                 {musicList.map((music, index) =>
                   <div key={index}>
                     <MusicItem music={music}/>

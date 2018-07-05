@@ -29,23 +29,21 @@ export default class LogButtons extends Component{
     onClickLogout(event){
         this.Authorization.logout();
         alert('You are now logged out!');
+        const ListUrl = "/";
+        window.location= ListUrl;
     }
 
   render()
   {
-    return (
-        <div>       
-            <Col xs={3} xsOffset={8}
-                 sm={3} smOffset={9}
-                 md={3} mdOffset={10}
-                 lg={3} lgOffset={10} 
-                 className="button-bar">      
-                <ButtonToolbar>
-                    <Button bsStyle="success" onClick={this.onClickLogin}>Log in</Button>
-                    <Button bsStyle="warning" onClick={this.onClickLogout}>Log out</Button>
-                </ButtonToolbar>
-            </Col>
-        </div>
-     )
+      if(this.Authorization.loggedIn()){
+          return (                
+            <Button bsStyle="warning" onClick={this.onClickLogout}>Log out</Button>        
+          )
+      }
+      else{
+        return (           
+            <Button bsStyle="success" onClick={this.onClickLogin}>Log in</Button>                    
+        )
+    }
   }
 }

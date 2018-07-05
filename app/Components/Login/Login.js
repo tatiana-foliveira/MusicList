@@ -39,7 +39,8 @@ handleSubmit(event) {
 
     this.Authorization.login(this.state.userName,this.state.password)
     .then(res =>{
-      console.log("token: ", res);
+      const listUrl = "/";
+      window.location= listUrl;  
     })
     .catch(err =>{
         alert(err);
