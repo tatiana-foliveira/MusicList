@@ -16,22 +16,29 @@ export default class NavBar extends Component{
         this.Authorization = new Authorization();
     }
 
-    onClickFavorites(){
-        const favoritesUrl = "/favorites";
-        window.location= favoritesUrl;
+    onClickFavorites(event){
+        event.preventDefault();
+        if(this.Authorization.loggedIn()){
+            const favoritesUrl = "/favorites";
+            window.location= favoritesUrl;
+        }
+        else{
+            alert('Please Log in first.')
+            
+        }
+        
     }
 
 
   render()
   {
-      if(this.Authorization.loggedIn()){
+        
         return (
-            
-            <Navbar bsStyle={style.navBar}>
+            <Navbar>                
                 <Nav>
                     <NavItem >
-                        <Button bsStyle="primary" onClick={this.onClickFavorites}>
-                            <Glyphicon glyph="star" /> Favorites
+                        <Button onClick={this.onClickFavorites}>
+                            <Glyphicon glyph="star"/> Favorites
                         </Button> 
                     </NavItem>                    
                     <NavItem >
@@ -40,18 +47,6 @@ export default class NavBar extends Component{
                 </Nav>
             </Navbar>
         )
-      }
-      else{
-        return (
-            <Navbar>
-                <Nav>            
-                    <NavItem >
-                        <LogButtons />
-                    </NavItem>               
-                </Nav>
-            </Navbar>
-        )
-      }
     
   }
 }

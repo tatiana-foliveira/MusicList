@@ -4,6 +4,7 @@ import MusicItem from '../MusicItem/MusicItem';
 import "./MusicList.scss"
 import Loader from '../Loader/Loader'
 import NavBar from '../NavBar/NavBar'
+import Header from '../Header/Header'
 
 export default class MusicList extends Component{
 
@@ -35,33 +36,20 @@ fetchData(){
  render()
   {
     const { musicList, isLoading } = this.state;  
-    console.log(musicList)
+    
     if (isLoading) {
       return <Loader />;
     }    
     return (
       <div className="container">
-          <div className="row">
-            <div className="panel panel-info">
-              <div className="panel-heading musicList-panel">
-                <p className="musicList-title">
-                  MusicMix
-                </p> 
-                <p className="musicList-subTitle">
-                  The music you love 
-                </p> 
-                        
-              </div>
-                <div className="panel-body musicList-background">    
+                <Header />
                 <NavBar />         
                 {musicList.map((music, index) =>
                   <div key={index}>
-                    <MusicItem music={music}/>
-                    </div>
+                    <MusicItem music={music}/>                   
+                  </div>
                   )}
-                </div>
-            </div>
-          </div>
+          
         </div>
        )
   }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Component } from 'react'
-import style from './Loader.scss'
+import './Loader.scss'
+import Header from '../Header/Header'
 
 
 export default class Error extends Component{
@@ -10,24 +11,13 @@ export default class Error extends Component{
   {
     return (
         <div className="container">
-          <div className="row">
-            <div className="panel panel-info">
-              <div className="panel-heading musicList-panel">
-                <p className="musicList-title">
-                  MusicMix
-                </p> 
-                <p className="musicList-subTitle">
-                  The music you love 
-                </p>         
-              </div>
+            <Header />
                 <div className="panel-body musicList-background">
-                    <div className={style.loadingText}>
+                    <div className="loadingText">
                         Loading...
                     </div>
                 </div>
             </div>
-          </div>
-        </div>
      )
   }
 }

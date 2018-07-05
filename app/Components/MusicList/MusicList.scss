@@ -1,5 +1,9 @@
 @import "./app/utils/variables";
 
+.content{
+    width: 100% !important;
+}
+
 .musicList-question{
     color: $base-color-dark;
     font-family: $font-family;

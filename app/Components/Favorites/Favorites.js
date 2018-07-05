@@ -3,7 +3,9 @@ import { Component } from 'react'
 import "./Favorites.scss"
 import Loader from '../Loader/Loader'
 import Authorization from '../Authorization/Authorization'
-import MusicItem from '../MusicItem/MusicItem';
+import MusicItem from '../MusicItem/MusicItem'
+import NavBar from '../NavBar/NavBar'
+import Header from '../Header/Header'
 
 export default class Favorites extends Component{
 
@@ -74,16 +76,8 @@ fetchData(){
     return (
         
         <div className="container">
-          <div className="row">
-            <div className="panel panel-info">
-              <div className="panel-heading musicList-panel">
-                <p className="musicList-title">
-                  MusicMix
-                </p> 
-                <p className="musicList-subTitle">
-                  The music you love 
-                </p>         
-              </div>
+          <Header />
+          <NavBar />
                 <div className="panel-body musicList-background">
                 {favoritesList.map((music, index) =>
                   <div key={index}>
@@ -92,8 +86,6 @@ fetchData(){
                   )}
                 </div>
             </div>
-          </div>
-        </div>
      )
   }
     

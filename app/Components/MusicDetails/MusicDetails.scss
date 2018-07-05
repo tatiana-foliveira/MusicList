@@ -19,4 +19,18 @@
         word-wrap: break-word;
         
     }
+
+    > .musicItem-details .detail-info{
+        text-align: right;
+        font-weight: bold;
+        color: $base-color-dark;
+        
+    }
+    
+}
+
+.addFavoriteButton{
+    display: block !important;
+    margin: 0 auto;
+    
 }
