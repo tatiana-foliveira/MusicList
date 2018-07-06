@@ -1,6 +1,5 @@
 import React from 'react'
 import { Component } from 'react'
-import "./Favorites.scss"
 import Loader from '../Loader/Loader'
 import Authorization from '../Authorization/Authorization'
 import MusicItem from '../MusicItem/MusicItem'
@@ -17,6 +16,7 @@ export default class Favorites extends Component{
     this.Authorization = new Authorization();
     this.state = {
         favoritesList: [],
+        hasFavorites:false,
         isLoading: false
     }    
   }
@@ -61,37 +61,47 @@ fetchData(){
             'Content-Type': 'application/json'
         }})
     .then(data => data.json())
-    .then(data => data.map((music) => this.setState({
-        favoritesList: this.getMusicDetails(music),        
-        isLoading: false
-    })))
+    .then(data => 
+      {
+      if(data.length > 0){
+        debugger;
+        data.map((music) => 
+        this.setState({        
+          favoritesList: this.getMusicDetails(music),        
+          isLoading: false,
+          hasFavorites: true
+      }))
+      }
+      else{
+        this.setState({              
+          isLoading: false
+      })
+      }
+    })
     .catch(error => console.log('error:', error));
 }
 
  render()
   {    
-    const { favoritesList, isLoading } = this.state; 
-    debugger;
-    
-
-    
-    
+    const { favoritesList, isLoading, hasFavorites } = this.state; 
     if (isLoading) {
       return  (<Loader />)
     }  
     
     else{
-      if(favoritesList == []){
-        return (<EmptyFavorites />)
-      }
-      else{
+
+      if (!hasFavorites) {
+        return  (
+          (<EmptyFavorites />)
+        )
+      } 
+      return (
         
-        return (
-        
-          <div>
-            <Col lg={12} md={12} sm={12} xs={12}>            
+        <div>
+          <Col lg={12} md={12} sm={12} xs={12}>            
             <Header />             
-            <Menu />                
+            <Menu />          
+            <div className="loadingText">Your Favorites</div>       
             <Col lg={10} md={10} sm={10} xs={10} className="musicListPanel">
                   <div className="panel-body musicList-background">
                   {favoritesList.map((music, index) =>
@@ -100,34 +110,12 @@ fetchData(){
                       </div>
                     )}
                   </div>
-                  </Col>
-                  </Col>
-              </div>
-       )
-        
+              </Col>
+            </Col>
+        </div>
+     )
       }
 
-    }
-
-    
-    // return (
-        
-    //     <div>
-    //       <Col lg={12} md={12} sm={12} xs={12}>            
-    //       <Header />             
-    //       <Menu />                
-    //       <Col lg={10} md={10} sm={10} xs={10} className="musicListPanel">
-    //             <div className="panel-body musicList-background">
-    //             {favoritesList.map((music, index) =>
-    //               <div key={index}>
-    //                 <MusicItem music={music}/>
-    //                 </div>
-    //               )}
-    //             </div>
-    //             </Col>
-    //             </Col>
-    //         </div>
-    //  )
   }
     
 }

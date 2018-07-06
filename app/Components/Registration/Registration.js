@@ -66,13 +66,14 @@ export default class Login extends Component{
           <div>
             <Col lg={12} md={12} sm={12} xs={12}>            
                 <Header />             
-                <Menu />                
+                <Menu />   
+                <div className="loadingText">Registration</div>              
                 <Col lg={10} md={10} sm={10} xs={10} className="musicListPanel">
                   
                   <div className="panel-body musicList-background">
                   <Form horizontal onSubmit={this.handleSubmit}>
                     <FormGroup controlId="formHorizontalName">
-                        <Col componentClass={ControlLabel} 
+                        <Col componentClass={ControlLabel} className = "loginText" 
                         xs={2} xsOffset={3} 
                         sm={3} smOffset={2} 
                         md={3} mdOffset={2} 
@@ -88,7 +89,7 @@ export default class Login extends Component{
                       </FormGroup>
                   
                       <FormGroup controlId="formHorizontalEmail">
-                        <Col componentClass={ControlLabel} 
+                        <Col componentClass={ControlLabel} className = "loginText" 
                         xs={2} xsOffset={3} 
                         sm={3} smOffset={2} 
                         md={3} mdOffset={2} 
@@ -104,7 +105,7 @@ export default class Login extends Component{
                       </FormGroup>
                       
                       <FormGroup controlId="formHorizontalPassword">
-                        <Col componentClass={ControlLabel} 
+                        <Col componentClass={ControlLabel} className = "loginText" 
                         xs={2} xsOffset={3}
                         sm={3} smOffset={2} 
                         md={3} mdOffset={2} 

@@ -29,6 +29,7 @@
                 font-weight: bold;
                 text-align: center;
                 display: none;
+                color: $item-font-color;
 
                 @media(min-width: 769px) and (max-width: 992px){
                     display: grid;
@@ -47,7 +48,7 @@
             > .music-artist{
                 text-align: center;
                 display: none;
-
+                color: $item-font-color;
                         
                 @media (min-width: 993px) and (max-width: 1199px){
                     display: grid;

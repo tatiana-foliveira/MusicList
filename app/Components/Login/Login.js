@@ -60,17 +60,18 @@ handleSubmit(event) {
         <div>
           <Col lg={12} md={12} sm={12} xs={12}>            
                 <Header />             
-                <Menu />                
+                <Menu /> 
+                <div className="loadingText">Log in</div>                
                 <Col lg={10} md={10} sm={10} xs={10} className="musicListPanel">
                 <div className="panel-body musicList-background">
                     <Form horizontal onSubmit={this.handleSubmit}>
                         <FormGroup controlId="formHorizontalEmail">
-                        <Col componentClass={ControlLabel} 
+                        <Col componentClass={ControlLabel} className = "loginText" 
                         xs={2} xsOffset={3} 
                         sm={3} smOffset={2} 
                         md={3} mdOffset={2} 
                         lg={3} lgOffset={2}>
-                        Username
+                        E-mail
                         </Col>
                         <Col xs={3} sm={3} md={3} lg={3}>
                             <FormControl type="email" 
@@ -81,7 +82,7 @@ handleSubmit(event) {
                         </FormGroup>
                     
                         <FormGroup controlId="formHorizontalPassword">
-                        <Col componentClass={ControlLabel} 
+                        <Col componentClass={ControlLabel} className = "loginText"  
                         xs={2} xsOffset={3}
                         sm={3} smOffset={2} 
                         md={3} mdOffset={2} 
@@ -110,7 +111,7 @@ handleSubmit(event) {
                         xsOffset={5} xs={5} 
                         smOffset={5} sm={5} 
                         mdOffset={5} md={5}  
-                        lgOffset={5} lg={3}>
+                        lgOffset={5} lg={3} className="textRegister">
                             Don't have an account yet? Register <a href="/register">here</a>
                         </Col>
                         </FormGroup>

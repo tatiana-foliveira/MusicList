@@ -99,17 +99,39 @@ export default class Menu extends Component{
         return (
             <Col className="menuWrapper" lg={2} md={2} sm={2} xs={2}>
                 
-                <div className="menuLink" visibility="hidden"  onClick={this.onClickHome}>
-                    <Glyphicon glyph="home" /> Home
+                <div className="menuLink" onClick={this.onClickHome}>      
+                    <Col lg={12} md={12} sm={12} xs={12}>              
+                        <Col lg={2} md={2} sm={2} xs={2} className="menuIcon">
+                            <Glyphicon glyph="home"/> 
+                        </Col>
+                        <Col lg={10} md={10} sm={10} xs={10} className="menuTitle">
+                            Home
+                        </Col> 
+                    </Col>                    
                 </div >
                 <div  className="menuLink"  onClick={this.onClickLogin}>
-                    <Glyphicon glyph="lock" /> Log in
-                </div>
-                <div  className="menuLink"  onClick={this.onClickFavorites}>
-                    <Glyphicon glyph="star" /> Favorites
+                    <Col lg={12} md={12} sm={12} xs={12}>
+                        <Col lg={2} md={2} sm={2} xs={2}>
+                            <Glyphicon glyph="lock"/> 
+                        </Col>
+                        <Col lg={10} md={10} sm={10} xs={10} className="menuTitle">
+                            Log in
+                        </Col>
+                    </Col>   
                 </div>
                 
-          </Col> 
+                <div  className="menuLink"  onClick={this.onClickFavorites}>
+                    <Col lg={12}>
+                        <Col lg={2}>
+                            <Glyphicon glyph="star"/> 
+                        </Col>
+                        <Col lg={10} className="menuTitle">
+                            Favorites
+                        </Col>
+                    </Col>   
+                </div>
+                
+        </Col> 
         )
 
     } 

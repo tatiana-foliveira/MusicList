@@ -87,7 +87,8 @@ export default class MusicDetails extends Component{
         <div>
           <Col lg={12} md={12} sm={12} xs={12}>            
                 <Header />             
-                <Menu />                
+                <Menu />          
+                <div className="loadingText">Music Details</div>       
                 <Col lg={10} md={10} sm={10} xs={10} className="musicListPanel">
                 <div className="panel-body musicList-background">
                 
@@ -103,7 +104,7 @@ export default class MusicDetails extends Component{
                   lg={3} lgOffset={2}>
                     Title
                   </Col>
-                  <Col xs={3} sm={3} md={3} lg={3}>
+                  <Col xs={3} sm={3} md={3} lg={3} className="textRegister">
                     {musicDetail.title}
                   </Col>
                   <Col  
@@ -114,7 +115,7 @@ export default class MusicDetails extends Component{
                   lg={3} lgOffset={2}>
                     Artist
                   </Col>
-                  <Col xs={3} sm={3} md={3} lg={3}>
+                  <Col xs={3} sm={3} md={3} lg={3} className="textRegister">
                     {musicDetail.artist}
                   </Col>
                   <Col  
@@ -125,7 +126,7 @@ export default class MusicDetails extends Component{
                   lg={3} lgOffset={2}>
                     Year
                   </Col>
-                  <Col xs={3} sm={3} md={3} lg={3}>
+                  <Col xs={3} sm={3} md={3} lg={3} className="textRegister">
                     {musicDetail.year}
                   </Col>
                   <Col  
@@ -144,7 +145,7 @@ export default class MusicDetails extends Component{
                 <Form horizontal onSubmit={this.handleSubmit}>
                   <FormGroup>
                     <Row>                   
-                      <Button type="submit" className="addFavoriteButton" bsStyle="primary" onClick={this.onClickAddFavorites}>
+                      <Button type="submit" className="addFavoriteButton" onClick={this.onClickAddFavorites}>
                         <Glyphicon glyph="star" /> Add to Favorites
                       </Button>
                     </Row>
