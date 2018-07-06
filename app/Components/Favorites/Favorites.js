@@ -4,8 +4,10 @@ import "./Favorites.scss"
 import Loader from '../Loader/Loader'
 import Authorization from '../Authorization/Authorization'
 import MusicItem from '../MusicItem/MusicItem'
-import NavBar from '../NavBar/NavBar'
+import Menu from '../Menu/Menu'
 import Header from '../Header/Header'
+import EmptyFavorites from '../EmptyFavorites/EmptyFavorites'
+import { Col } from 'react-bootstrap'
 
 export default class Favorites extends Component{
 
@@ -69,24 +71,63 @@ fetchData(){
  render()
   {    
     const { favoritesList, isLoading } = this.state; 
+    debugger;
+    
 
+    
+    
     if (isLoading) {
       return  (<Loader />)
-    }    
-    return (
+    }  
+    
+    else{
+      if(favoritesList == []){
+        return (<EmptyFavorites />)
+      }
+      else{
         
-        <div className="container">
-          <Header />
-          <NavBar />
-                <div className="panel-body musicList-background">
-                {favoritesList.map((music, index) =>
-                  <div key={index}>
-                    <MusicItem music={music}/>
-                    </div>
-                  )}
-                </div>
-            </div>
-     )
+        return (
+        
+          <div>
+            <Col lg={12} md={12} sm={12} xs={12}>            
+            <Header />             
+            <Menu />                
+            <Col lg={10} md={10} sm={10} xs={10} className="musicListPanel">
+                  <div className="panel-body musicList-background">
+                  {favoritesList.map((music, index) =>
+                    <div key={index}>
+                      <MusicItem music={music}/>
+                      </div>
+                    )}
+                  </div>
+                  </Col>
+                  </Col>
+              </div>
+       )
+        
+      }
+
+    }
+
+    
+    // return (
+        
+    //     <div>
+    //       <Col lg={12} md={12} sm={12} xs={12}>            
+    //       <Header />             
+    //       <Menu />                
+    //       <Col lg={10} md={10} sm={10} xs={10} className="musicListPanel">
+    //             <div className="panel-body musicList-background">
+    //             {favoritesList.map((music, index) =>
+    //               <div key={index}>
+    //                 <MusicItem music={music}/>
+    //                 </div>
+    //               )}
+    //             </div>
+    //             </Col>
+    //             </Col>
+    //         </div>
+    //  )
   }
     
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { Component } from 'react'
 import "./MusicDetails.scss"
 import Loader from '../Loader/Loader'
-import NavBar from '../NavBar/NavBar'
+import Menu from '../Menu/Menu'
 import Header from '../Header/Header'
 import {Form, FormControl, FormGroup, ControlLabel, HelpBlock, Button, Col, Row, Glyphicon} from 'react-bootstrap'
 import Authorization from '../Authorization/Authorization'
@@ -84,9 +84,11 @@ export default class MusicDetails extends Component{
       return <Loader />;
     }   
     return (
-        <div className="container">
-                <Header />
-                <NavBar />
+        <div>
+          <Col lg={12} md={12} sm={12} xs={12}>            
+                <Header />             
+                <Menu />                
+                <Col lg={10} md={10} sm={10} xs={10} className="musicListPanel">
                 <div className="panel-body musicList-background">
                 
                 <div className="music-img-detail">
@@ -135,7 +137,7 @@ export default class MusicDetails extends Component{
                     Lyrics and Chords
                   </Col>
                   <Col xs={3} sm={3} md={4} lg={4} >
-                    <a className="detail-url" href={musicDetail.webUrl}>{musicDetail.webUrl}</a>
+                    <a className="detail-url" href={musicDetail.webUrl} target="_blank">{musicDetail.webUrl}</a>
                   </Col>
                   </div>
                   
@@ -143,16 +145,16 @@ export default class MusicDetails extends Component{
                   <FormGroup>
                     <Row>                   
                       <Button type="submit" className="addFavoriteButton" bsStyle="primary" onClick={this.onClickAddFavorites}>
-                        <Glyphicon glyph="star" /> Add to Favorites</Button>
+                        <Glyphicon glyph="star" /> Add to Favorites
+                      </Button>
                     </Row>
                   </FormGroup>
                 </Form>                               
-              </div>
-              
-        </div>
-        
+              </div>  
+              </Col> 
+              </Col>           
+        </div>        
     )
   }
-
 
 }

@@ -3,6 +3,7 @@ import { Component } from 'react'
 import "./Registration.scss"
 import {Form, FormControl, FormGroup, ControlLabel, HelpBlock, Button, Col} from 'react-bootstrap'
 import Header from '../Header/Header'
+import Menu from '../Menu/Menu'
 
 export default class Login extends Component{
     constructor() {
@@ -23,7 +24,7 @@ export default class Login extends Component{
       handleSubmit(event){
         event.preventDefault();
 
-        var url = 'https://songs-api-ubiwhere.now.sh/api/user-favorites/';
+        var url = 'https://songs-api-ubiwhere.now.sh/api/auth/register/';
         
         var payload={
             "email": this.state.email,
@@ -39,7 +40,11 @@ export default class Login extends Component{
                 'Content-Type': 'application/json'
                 }            
         })
-        .then(data => console.log(data.json()))
+        .then(data => data.json())
+        .then(data => {
+            const listUrl = "/";
+            window.location= listUrl;  
+        })
         .catch(error => console.log('error:', error));
     }
 
@@ -58,8 +63,11 @@ export default class Login extends Component{
     render()
     {
       return (
-          <div className="container">
-            <Header />
+          <div>
+            <Col lg={12} md={12} sm={12} xs={12}>            
+                <Header />             
+                <Menu />                
+                <Col lg={10} md={10} sm={10} xs={10} className="musicListPanel">
                   
                   <div className="panel-body musicList-background">
                   <Form horizontal onSubmit={this.handleSubmit}>
@@ -88,7 +96,7 @@ export default class Login extends Component{
                         E-mail
                         </Col>
                         <Col xs={3} sm={3} md={3} lg={3}>
-                            <FormControl type="text" 
+                            <FormControl type="email" 
                             placeholder="E-mail" 
                             value={this.state.email} 
                             onChange={this.onChangeEmail}/>
@@ -124,7 +132,8 @@ export default class Login extends Component{
                   </Form>
               
                   </div>
-              
+              </Col>
+              </Col>
           </div>
        )
     }

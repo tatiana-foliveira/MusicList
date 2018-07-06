@@ -3,8 +3,9 @@ import { Component } from 'react'
 import MusicItem from '../MusicItem/MusicItem';
 import "./MusicList.scss"
 import Loader from '../Loader/Loader'
-import NavBar from '../NavBar/NavBar'
 import Header from '../Header/Header'
+import Menu from '../Menu/Menu'
+import { Col } from 'react-bootstrap'
 
 export default class MusicList extends Component{
 
@@ -41,15 +42,19 @@ fetchData(){
       return <Loader />;
     }    
     return (
-      <div className="container">
-                <Header />
-                <NavBar />         
+      <div>
+          
+            <Col lg={12} md={12} sm={12} xs={12}>            
+                <Header />             
+                <Menu />                
+                <Col lg={10} md={10} sm={10} xs={10} className="musicListPanel">
                 {musicList.map((music, index) =>
                   <div key={index}>
                     <MusicItem music={music}/>                   
                   </div>
                   )}
-          
+              </Col> 
+            </Col> 
         </div>
        )
   }

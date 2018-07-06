@@ -1,11 +1,35 @@
 @import "./app/utils/variables";
 
+.noOverflow{
+    overflow: hidden;
+}
+
 .panel-body {
-    width:100%;
+    
     > .music-img-detail{
     display: table;
     margin: 0 auto;
     padding-bottom: 50px;
+
+        > .image {
+            border-radius: 10%;
+            width: 70%;
+            display: table;
+            margin: 0 auto;
+
+            @media(min-width: 769px) and (max-width: 992px){
+                width: 80%;
+            }
+        
+            @media (min-width: 993px) and (max-width: 1199px){
+                width: 90%;
+            }
+        
+            @media(min-width:1200px){
+                width: 100%;
+            }
+        }
+    
     }
 
     > .musicItem-details .detail-header{

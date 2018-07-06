@@ -1,25 +1,87 @@
 @import "./app/utils/variables";
 
 .item-wrapper {    
-    border: 1px solid black;
-    padding: 5px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    > .music-card{
-    background-color: aqua;
-    margin: 5px;
+    height: 100px;
+    margin-bottom: 15px;
 
-        > .music-title{
-            font-weight: bold;
-            text-align: left;
+    @media(min-width: 769px) and (max-width: 992px){
+        height: 180px;
+    }
+
+    @media (min-width: 993px) and (max-width: 1199px){
+        height: 190px;
+    }
+
+    @media(min-width:1200px){
+        height: 250px;
+    }
+    
+
+    > .item-card{
+        background-color: $base-color-light;
+        cursor: pointer;
+        height: 100%;
+        border-radius: 10%;
+
+        > .music-card{
+            
+            > .music-title{
+                font-weight: bold;
+                text-align: center;
+                display: none;
+
+                @media(min-width: 769px) and (max-width: 992px){
+                    display: grid;
+                }
+            
+                @media (min-width: 993px) and (max-width: 1199px){
+                    display: grid;
+                }
+            
+                @media(min-width:1200px){
+                    display: grid;
+                }
+                
+
+            }
+            > .music-artist{
+                text-align: center;
+                display: none;
+
+                        
+                @media (min-width: 993px) and (max-width: 1199px){
+                    display: grid;
+                }
+            
+                @media(min-width:1200px){
+                    display: grid;
+                }
+            }
+
+            
         }
-        > .music-artist{
-            text-align: left;
+    
+        > .music-img .image{
+            display: table;
+            margin: 0 auto;
+            width: 100%;
+            padding-top: 10px;
+            border-radius: 10%;
+
+            @media(min-width: 769px) and (max-width: 992px){
+                width: 70%;
+            }
+        
+            @media (min-width: 993px) and (max-width: 1199px){
+                width: 70%;
+            }
+        
+            @media(min-width:1200px){
+                width: 70%;
+            }
         }
     }
 
-    > .music-img .image{
-        width: 100%;
-    }
+    
         
 }

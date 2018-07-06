@@ -1,8 +1,9 @@
 import React from 'react'
 import { Component } from 'react'
 import "./Login.scss"
-import {Form, FormControl, FormGroup, ControlLabel, HelpBlock, Button, Col, Navbar} from 'react-bootstrap'
+import {Form, FormControl, FormGroup, Button, Col, ControlLabel } from 'react-bootstrap'
 import Authorization from '../Authorization/Authorization'
+import Menu from '../Menu/Menu'
 import Header from '../Header/Header'
 
 export default class Login extends Component{
@@ -56,8 +57,11 @@ handleSubmit(event) {
       return  (<Loader />)
     }    
     return (
-        <div className="container">
-          <Header />
+        <div>
+          <Col lg={12} md={12} sm={12} xs={12}>            
+                <Header />             
+                <Menu />                
+                <Col lg={10} md={10} sm={10} xs={10} className="musicListPanel">
                 <div className="panel-body musicList-background">
                     <Form horizontal onSubmit={this.handleSubmit}>
                         <FormGroup controlId="formHorizontalEmail">
@@ -69,7 +73,7 @@ handleSubmit(event) {
                         Username
                         </Col>
                         <Col xs={3} sm={3} md={3} lg={3}>
-                            <FormControl type="text" 
+                            <FormControl type="email" 
                             placeholder="Username" 
                             value={this.state.userName} 
                             onChange={this.onChangeUsername}/>
@@ -112,6 +116,8 @@ handleSubmit(event) {
                         </FormGroup>
                     </Form>
                 </div>
+                </Col>
+                </Col>
             </div>
      )
   }
