@@ -6,7 +6,6 @@ import Loader from '../Loader/Loader'
 import Header from '../Header/Header'
 import Menu from '../Menu/Menu'
 import { Col } from 'react-bootstrap'
-import Modal from '../Modal/Modal';
 
 export default class MusicList extends Component{
 
@@ -58,11 +57,6 @@ fetchData(){
                   )}
               </Col> 
             </Col> 
-
-            <Modal show={this.state.showModal}
-              onClose={this.toggleModal}>
-              Here's some content for the modal
-            </Modal>
         </div>
        )
   }

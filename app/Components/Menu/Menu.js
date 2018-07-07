@@ -12,7 +12,7 @@ export default class Menu extends Component{
 
         this.state = {
             showModal: false,
-            
+            modalMsg: ''
           };
       
         this.toggleModal = this.toggleModal.bind(this);
@@ -31,24 +31,15 @@ export default class Menu extends Component{
 
     onClickLogout(event){
         event.preventDefault();
-
-        this.Authorization.logout();
-        alert('You are now logged out!');
+        this.Authorization.logout(); 
         location.reload();
+       
     }
 
     onClickLogin(event){
         event.preventDefault();
-
-        if (this.Authorization.loggedIn()) 
-        {
-            alert('Already logged in!');
-        }
-        else{
-            const LoginUrl = "/login";
-            window.location= LoginUrl;   
-        }               
-          
+        const LoginUrl = "/login";
+        window.location= LoginUrl;   
     }
 
     onClickHome(event){
@@ -65,6 +56,10 @@ export default class Menu extends Component{
             window.location= favoritesUrl;
         }
         else{
+            
+            this.setState({
+                modalMsg: 'Please Log in first!'
+            });
             this.toggleModal();
             
         }
@@ -75,6 +70,7 @@ export default class Menu extends Component{
   {
     if(this.Authorization.loggedIn()) {
         return (
+            
             <div>
             <Col className="menuWrapper" lg={2} md={2} sm={2} xs={2}>                
                 <div className="menuLink" id="home" onClick={this.onClickHome}>      
@@ -116,6 +112,7 @@ export default class Menu extends Component{
     )}
     else{
         return (
+           
             <div>
             <Col className="menuWrapper" lg={2} md={2} sm={2} xs={2}>
                 
@@ -151,11 +148,12 @@ export default class Menu extends Component{
                     </Col>   
                 </div>
                 
-        </Col> 
+        </Col>     
+    
         <Modal show={this.state.showModal}
-            onClose={this.toggleModal}>
-            Please Log in First!
-        </Modal>
+            onClose={this.toggleModal}
+            children={this.state.modalMsg}>
+        </Modal> 
     </div>
         )
 

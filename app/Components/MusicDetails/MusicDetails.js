@@ -6,6 +6,7 @@ import Menu from '../Menu/Menu'
 import Header from '../Header/Header'
 import {Form, FormControl, FormGroup, ControlLabel, HelpBlock, Button, Col, Row, Glyphicon} from 'react-bootstrap'
 import Authorization from '../Authorization/Authorization'
+import Modal from '../Modal/Modal';
 
 export default class MusicDetails extends Component{
     constructor(props){
@@ -13,11 +14,20 @@ export default class MusicDetails extends Component{
 
         this.state = {
             musicDetail: {},
-            isLoading: false
+            isLoading: false,
+            showModal: false,
+            modalMsg: ''
           };
 
           this.onClickAddFavorites = this.onClickAddFavorites.bind(this);
+          this.toggleModal = this.toggleModal.bind(this);
           this.Authorization = new Authorization();
+    }
+
+    toggleModal(){
+      this.setState({
+        showModal: !this.state.showModal
+      });
     }
 
     componentDidMount(){
@@ -42,7 +52,11 @@ export default class MusicDetails extends Component{
       event.preventDefault();
 
       if(!this.Authorization.loggedIn()){
-        alert('Please Log in first')
+        
+        this.setState({
+          modalMsg: 'Please Log in first!'
+        });
+        this.toggleModal();
 
       }
 
@@ -153,7 +167,12 @@ export default class MusicDetails extends Component{
                 </Form>                               
               </div>  
               </Col> 
-              </Col>           
+              </Col>     
+
+              <Modal show={this.state.showModal}
+                onClose={this.toggleModal}
+                children={this.state.modalMsg}>
+              </Modal>      
         </div>        
     )
   }

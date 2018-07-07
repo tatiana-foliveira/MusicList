@@ -2,8 +2,9 @@ import React from 'react'
 import { Component } from 'react'
 import PropTypes from 'prop-types';
 import './Modal.scss'
+import { Button } from 'react-bootstrap'
 
-class Modal extends React.Component {
+export default class Modal extends React.Component {
     render() {
 
       if(!this.props.show) {
@@ -12,25 +13,24 @@ class Modal extends React.Component {
   
   
       return (
-        <div className="backdropStyle" >
           <div className="modalStyle" >
-            {this.props.children}
-  
-            <div className="footer">
-              <button onClick={this.props.onClose}>
+            <div className="modalText">
+              {this.props.children}  
+            </div>
+            <div >
+              <Button className="modalFooter" onClick={this.props.onClose}>
                 Close
-              </button>
+              </Button>
             </div>
           </div>
-        </div>
       );
     }
   }
   
   Modal.propTypes = {
-    onClose: PropTypes.func.isRequired,
+    onClose: PropTypes.func,
     show: PropTypes.bool,
     children: PropTypes.node
   };
   
-  export default Modal;
+ 
