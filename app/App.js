@@ -8,12 +8,15 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Route from 'react-router-dom/Route'
 import MusicDetails from './Components/MusicDetails/MusicDetails';
 import Login from './Components/Login/Login';
+import Header from './Components/Header/Header';
+import Menu from './Components/Menu/Menu';
 import Favorites from './Components/Favorites/Favorites';
 import Registration from './Components/Registration/Registration';
 
 export default class App extends Component {
   render() {
     return (
+      <div>
       <Router>
       <div>
         <Route path="/" exact component={MusicList} />
@@ -24,6 +27,7 @@ export default class App extends Component {
 
       </div>
       </Router>
+      </div>
     );
   }
 }

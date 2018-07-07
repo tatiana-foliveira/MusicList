@@ -3,12 +3,19 @@ import { Component } from 'react'
 import { Col, Glyphicon } from 'react-bootstrap'
 import './Menu.scss'
 import Authorization from '../Authorization/Authorization'
+import Modal from '../Modal/Modal';
 
 export default class Menu extends Component{
 
     constructor(){
         super();
 
+        this.state = {
+            showModal: false,
+            
+          };
+      
+        this.toggleModal = this.toggleModal.bind(this);
         this.onClickLogin = this.onClickLogin.bind(this);
         this.onClickFavorites = this.onClickFavorites.bind(this);
         this.onClickHome = this.onClickHome.bind(this);
@@ -16,7 +23,15 @@ export default class Menu extends Component{
         this.Authorization = new Authorization();
     }
 
+    toggleModal(){
+        this.setState({
+          showModal: !this.state.showModal
+        });
+      }
+
     onClickLogout(event){
+        event.preventDefault();
+
         this.Authorization.logout();
         alert('You are now logged out!');
         location.reload();
@@ -24,6 +39,7 @@ export default class Menu extends Component{
 
     onClickLogin(event){
         event.preventDefault();
+
         if (this.Authorization.loggedIn()) 
         {
             alert('Already logged in!');
@@ -38,7 +54,7 @@ export default class Menu extends Component{
     onClickHome(event){
         event.preventDefault();
         const HomeUrl = "/";
-            window.location= HomeUrl;  
+        window.location= HomeUrl;  
         
     }
 
@@ -49,7 +65,7 @@ export default class Menu extends Component{
             window.location= favoritesUrl;
         }
         else{
-            alert('Please Log in first.')
+            this.toggleModal();
             
         }
         
@@ -59,9 +75,9 @@ export default class Menu extends Component{
   {
     if(this.Authorization.loggedIn()) {
         return (
-            <Col className="menuWrapper" lg={2} md={2} sm={2} xs={2}>
-                
-                <div className="menuLink" onClick={this.onClickHome}>      
+            <div>
+            <Col className="menuWrapper" lg={2} md={2} sm={2} xs={2}>                
+                <div className="menuLink" id="home" onClick={this.onClickHome}>      
                     <Col lg={12} md={12} sm={12} xs={12}>              
                         <Col lg={2} md={2} sm={2} xs={2} className="menuIcon">
                             <Glyphicon glyph="home"/> 
@@ -71,7 +87,7 @@ export default class Menu extends Component{
                         </Col> 
                     </Col>                    
                 </div >
-                <div  className="menuLink"  onClick={this.onClickLogout}>
+                <div  className="menuLink"  id="log" onClick={this.onClickLogout}>
                     <Col lg={12} md={12} sm={12} xs={12}>
                         <Col lg={2} md={2} sm={2} xs={2}>
                             <Glyphicon glyph="lock"/> 
@@ -82,7 +98,7 @@ export default class Menu extends Component{
                     </Col>   
                 </div>
                 
-                <div  className="menuLink"  onClick={this.onClickFavorites}>
+                <div  className="menuLink" id="favorites" onClick={this.onClickFavorites}>
                     <Col lg={12}>
                         <Col lg={2}>
                             <Glyphicon glyph="star"/> 
@@ -94,9 +110,13 @@ export default class Menu extends Component{
                 </div>
                 
         </Col> 
+    </div>
+
+        
     )}
     else{
         return (
+            <div>
             <Col className="menuWrapper" lg={2} md={2} sm={2} xs={2}>
                 
                 <div className="menuLink" onClick={this.onClickHome}>      
@@ -132,6 +152,11 @@ export default class Menu extends Component{
                 </div>
                 
         </Col> 
+        <Modal show={this.state.showModal}
+            onClose={this.toggleModal}>
+            Please Log in First!
+        </Modal>
+    </div>
         )
 
     } 

@@ -1,0 +1,21 @@
+@import "./app/utils/variables";
+
+.backdropStyle {
+    top: 50px;
+    left: 500px;
+    background-color: grey;
+    padding: 50;
+    position: absolute;
+  }
+
+  .modalStyle {
+    background-color: white;
+    border-radius: 5;
+    max-width: 500;
+    min-height: 300;
+    margin: 0 auto;
+    padding: 30;
+    width: 500px;
+    height: 150px;
+  };
+

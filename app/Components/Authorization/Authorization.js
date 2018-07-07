@@ -1,10 +1,9 @@
 import decode from 'jwt-decode';
 
 export default class Authorization {
-    // Initializing important variables
     constructor(domain) {
         
-        this.fetch = this.fetch.bind(this) // React binding stuff
+        this.fetch = this.fetch.bind(this) 
         this.login = this.login.bind(this)
         this.getProfile = this.getProfile.bind(this)
     }
@@ -36,7 +35,7 @@ export default class Authorization {
     isTokenExpired(token) {
         try {
             const decoded = decode(token);
-            if (decoded.exp < Date.now() / 1000) { // Checking if token is expired. N
+            if (decoded.exp < Date.now() / 1000) { 
                 return true;
             }
             else

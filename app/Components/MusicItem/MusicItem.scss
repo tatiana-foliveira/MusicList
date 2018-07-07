@@ -3,6 +3,7 @@
 .item-wrapper {    
     height: 100px;
     margin-bottom: 15px;
+    
 
     @media(min-width: 769px) and (max-width: 992px){
         height: 180px;
@@ -15,6 +16,7 @@
     @media(min-width:1200px){
         height: 250px;
     }
+        
     
 
     > .item-card{
@@ -22,7 +24,6 @@
         cursor: pointer;
         height: 100%;
         border-radius: 10%;
-
         > .music-card{
             
             > .music-title{

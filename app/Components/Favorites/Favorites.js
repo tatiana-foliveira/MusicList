@@ -64,7 +64,6 @@ fetchData(){
     .then(data => 
       {
       if(data.length > 0){
-        debugger;
         data.map((music) => 
         this.setState({        
           favoritesList: this.getMusicDetails(music),        
