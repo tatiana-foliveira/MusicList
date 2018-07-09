@@ -82,7 +82,7 @@ export default class Login extends Component{
                         </Col>
                         <Col xs={3} sm={3} md={3} lg={3}>
                             <FormControl type="text" 
-                            placeholder="Username" 
+                            placeholder="Name" 
                             value={this.state.name} 
                             onChange={this.onChangeName}/>
                         </Col>

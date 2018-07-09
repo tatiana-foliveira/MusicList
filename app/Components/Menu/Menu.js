@@ -13,7 +13,7 @@ export default class Menu extends Component{
         this.state = {
             showModal: false,
             modalMsg: '',
-            logButtonText: ''
+            logButtonText: '',
           };
       
         this.toggleModal = this.toggleModal.bind(this);
@@ -63,7 +63,7 @@ export default class Menu extends Component{
 
     handleLogin(){
         const LoginUrl = "/login";
-        window.location= LoginUrl;   
+        window.location= LoginUrl; 
     }
 
     onClickHome(event){
