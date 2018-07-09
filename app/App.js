@@ -17,16 +17,18 @@ export default class App extends Component {
   render() {
     return (
       <div>
-      <Router>
-      <div>
-        <Route path="/" exact component={MusicList} />
-        <Route path="/details/:id" exact component={MusicDetails} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/favorites" exact component={Favorites} />
-        <Route path="/register" exact component={Registration} />
+        {/* <Header />             
+        <Menu /> */}
+        <Router>
+          <div>
+            <Route path="/" exact component={MusicList} />
+            <Route path="/details/:id" exact component={MusicDetails} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/favorites" exact component={Favorites} />
+            <Route path="/register" exact component={Registration} />
 
-      </div>
-      </Router>
+          </div>
+        </Router>
       </div>
     );
   }

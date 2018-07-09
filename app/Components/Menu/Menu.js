@@ -50,18 +50,18 @@ export default class Menu extends Component{
 
     toggleModal(){
         this.setState({
-          showModal: !this.state.showModal
+          showModal: !this.state.showModal        
         });
       }
 
-      handleLogout(event){
+      handleLogout(){
         this.Authorization.logout(); 
         const HomeUrl = "/";
         window.location = HomeUrl;
        
     }
 
-    handleLogin(event){
+    handleLogin(){
         const LoginUrl = "/login";
         window.location= LoginUrl;   
     }
@@ -73,27 +73,23 @@ export default class Menu extends Component{
         
     }
 
-    onClickFavorites(event){
+    onClickFavorites(event){  
         event.preventDefault();
         if(this.Authorization.loggedIn()){
             const favoritesUrl = "/favorites";
             window.location= favoritesUrl;
         }
-        else{
-            
+        else{            
             this.setState({
                 modalMsg: 'Please Log in first!'
             });
-            this.toggleModal();
-            
-        }
-        
+            this.toggleModal();            
+        }        
     }
 
   render()
   {
         return (
-            
             <div>
             <Col className="menuWrapper" lg={2} md={2} sm={2} xs={2}>                
                 <div className="menuLink" id="home" onClick={this.onClickHome}>      
@@ -118,16 +114,15 @@ export default class Menu extends Component{
                 </div>
                 
                 <div  className="menuLink" id="favorites" onClick={this.onClickFavorites}>
-                    <Col lg={12}>
-                        <Col lg={2}>
+                    <Col lg={12} md={12} sm={12} xs={12}>
+                        <Col lg={2} md={2} sm={2} xs={2}>
                             <Glyphicon glyph="star"/> 
                         </Col>
-                        <Col lg={10} className="menuTitle">
+                        <Col lg={10} md={10} sm={10} xs={10} className="menuTitle">
                             Favorites
                         </Col>
                     </Col>   
                 </div>
-                
         </Col> 
         <Modal show={this.state.showModal}
             onClose={this.toggleModal}
